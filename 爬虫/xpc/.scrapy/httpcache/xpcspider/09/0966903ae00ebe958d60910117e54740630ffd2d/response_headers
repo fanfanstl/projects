@@ -1,0 +1,14 @@
+Via: 1.1 tinyproxy (tinyproxy/1.8.3)
+Access-Control-Allow-Credentials: true
+Timing-Allow-Origin: *
+Ohc-File-Size: -1
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Content-Encoding: gzip
+Vary: Accept-Encoding
+Accept-Ranges: bytes
+X-Powered-By: PHP/7.2.6
+Access-Control-Allow-Origin: *
+Date: Mon, 05 Nov 2018 13:54:03 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Server: JSP3/2.0.14
+Content-Type: text/html; charset=UTF-8

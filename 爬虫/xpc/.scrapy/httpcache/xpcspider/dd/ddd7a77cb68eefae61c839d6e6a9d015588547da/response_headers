@@ -1,0 +1,13 @@
+Via: 1.1 tinyproxy (tinyproxy/1.8.3)
+Access-Control-Allow-Origin: http://h5.xinpianchang.com
+Accept-Ranges: bytes
+Access-Control-Allow-Credentials: true
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+X-Powered-By: PHP/7.2.6
+Timing-Allow-Origin: *
+Server: JSP3/2.0.14
+Content-Encoding: gzip
+Date: Mon, 05 Nov 2018 14:10:28 GMT
+Ohc-File-Size: -1
+Cache-Control: no-store, no-cache, must-revalidate
+Content-Type: application/json; charset=utf-8

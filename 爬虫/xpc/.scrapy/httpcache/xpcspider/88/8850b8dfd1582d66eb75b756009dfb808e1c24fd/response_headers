@@ -1,0 +1,13 @@
+Server: Tengine
+Content-Type: application/json
+Date: Mon, 05 Nov 2018 14:00:06 GMT
+Cache-Control: no-cache
+X-Ratelimit-Limit: 1000
+X-Ratelimit-Remaining: 999
+Via: cache16.l2nu29-1[78,200-0,M], cache30.l2nu29-1[79,0], kunlun3.cn1474[96,200-0,M], kunlun5.cn1474[97,0]
+Ali-Swift-Global-Savetime: 1541426406
+X-Cache: MISS TCP_MISS dirn:-2:-2
+X-Swift-Savetime: Mon, 05 Nov 2018 14:00:06 GMT
+X-Swift-Cachetime: 0
+Timing-Allow-Origin: *
+Eagleid: dede581915414264060776898e

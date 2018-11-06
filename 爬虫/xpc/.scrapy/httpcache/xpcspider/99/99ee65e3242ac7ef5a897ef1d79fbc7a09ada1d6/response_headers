@@ -1,0 +1,19 @@
+Via: 1.1 tinyproxy (tinyproxy/1.8.3)
+Server: JSP3/2.0.14
+Date: Mon, 05 Nov 2018 13:55:02 GMT
+Ohc-File-Size: -1
+Cache-Control: no-store, no-cache, must-revalidate
+Access-Control-Allow-Credentials: true
+Accept-Ranges: bytes
+Content-Type: text/html; charset=UTF-8
+Access-Control-Allow-Origin: *
+Set-Cookie: PHPSESSID=khlum2f6npmobeggqtp0jiuqmq; path=/
+Set-Cookie: Device_ID=5be04bb68f261; expires=Tue, 05-Nov-2019 13:55:02 GMT; Max-Age=31536000; path=/; domain=xinpianchang.com
+Set-Cookie: Authorization=4C9842C4DDB43DA3FDDB434902DDB438ED0DDB43EA136CE8AF32; expires=Tue, 05-Nov-2019 13:55:02 GMT; Max-Age=31536000; path=/; domain=xinpianchang.com
+Set-Cookie: visit_userid_10003579=1; expires=Mon, 05-Nov-2018 13:56:02 GMT; Max-Age=60
+Set-Cookie: SERVER_ID=b52601c8-5caf45c0; path=/
+Content-Encoding: gzip
+Timing-Allow-Origin: *
+Vary: Accept-Encoding
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+X-Powered-By: PHP/7.2.6
