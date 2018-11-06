@@ -1,0 +1,43 @@
+{% extends 'usermanagement/base_user.html' %}
+{% load static %}
+
+{% block content %}
+
+    {#    注册表单     #}
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" action="{% url 'forclass:register' %}" id="reg_form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username_input">用户名</label>
+                <input type="text" name="username" class="form-control" id="username_input" placeholder="请输入用户名">
+                <span id="username_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone_input">手机号</label>
+                <input type="text" name="phone" class="form-control" id="phone_input" placeholder="请输入手机号">
+                <span id="phone_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="passwd_input">密码</label>
+                <input type="password" name="passwd" class="form-control" id="passwd_input" placeholder="请输入密码">
+                <span id="passwd_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirm_passwd_input">确认密码</label>
+                <input type="password" class="form-control" id="confirm_passwd_input" placeholder="请确认密码">
+                <span id="confirm_passwd_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="img_input">头像</label>
+                <input type="file" name="icon" id="img_input">
+            </div>
+            <button type="submit" class="btn btn-success btn-block">注册</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block ext_js %}
+
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'usermanagement/js/register.js' %} "></script>
+{% endblock %}

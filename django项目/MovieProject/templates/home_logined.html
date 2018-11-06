@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        {% load static %}
+		<script type="text/javascript" src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/swiper.css' %}" />
+		<script type="text/javascript" src="{% static 'js/swiper.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}" />
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+		<script type="text/javascript" src="{% static 'js/home.js' %}" ></script>
+	</head>
+
+	<body>
+
+		<div class="container-fluid" id="box">
+
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">Fand</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<!--<li>
+							<a href="#">注册</a>
+						</li>
+						<li>
+							<a href="#">登陆</a>
+						</li>-->
+						<li>
+							<a class="icon" href="{% url 'app:selfinfo' %}">
+								<img width="40" height="40" class="img-circle" alt="" src="{{ icon }}" />
+							</a>
+						</li>
+
+						<li>
+							<a href="{% url 'app:selfinfo' %}"><span>{{ username }}</span></a>
+						</li>
+					</ul>
+				</div>
+
+			</nav>
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+                {% comment %}
+					<div class="swiper-slide">
+						<img src="carousel.c_url" alt="">
+					</div>
+                {% endcomment %}
+
+                    {% for carousel in carousels %}
+                    <div class="swiper-slide">
+						<img src="{{ carousel.c_url }}" alt="">
+					</div>
+                    {% endfor %}
+
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination swiper-pagination-white"></div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next swiper-button-white"></div>
+				<div class="swiper-button-prev swiper-button-white"></div>
+			</div>
+
+			<ul class="nav nav-tabs child-nav">
+				<li role="presentation" class="active">
+					<a href="{% url "app:login" %}">最新推荐</a>
+				</li>
+				<li role="presentation">
+					<a href="{% url 'app:selfcollect' %}">收藏</a>
+				</li>
+
+			</ul>
+
+
+			<ul class="movie_list">
+                {% for movie in movies %}
+                    <li>
+					<div class="movie_list_left">
+						<a target="_blank" href="{{ movie.m_more }}" title="{{ movie.m_title }}">
+							<img src="{{ movie.m_img }}" alt="{{ movie.m_title }}">
+							<div class="bottom-cover">
+								<span class="film-time">{{ movie.m_duration }}</span>
+							</div>
+						</a>
+					</div>
+
+					<div class="movie_list_right">
+						<h2>
+							<a target="_blank" href="{{ movie.m_more }}" title="{{ movie.m_title }}">
+								<span>{{ movie.m_title }}</span>
+							</a>
+						</h2>
+
+						<div class="movie-intro">
+							{{ movie.m_paa_fu_title }}
+						</div>
+						<div class="movie-like">
+							<span class="glyphicon glyphicon-heart" id="xin" style="color: grey;"  postid="{{ movie.m_postid }}" ></span>
+							<span>{{ movie.count }}</span>
+						</div>
+					</div>
+				</li>
+                {% endfor %}
+            <span id="page">{{ movies.9.id }}</span>
+			</ul>
+
+		</div>
+
+	</body>
+
+</html>

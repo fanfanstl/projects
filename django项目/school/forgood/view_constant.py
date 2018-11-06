@@ -1,0 +1,8 @@
+
+# FOR GOODS TYPE
+
+ALL = '8'
+
+# IS SEARCHGOOD
+
+IS_SEARCH = 1

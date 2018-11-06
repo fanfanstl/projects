@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+ {% load static %}
+
+{% block ext_css %}
+    <link rel="stylesheet" href="{% static 'usermanagement/css/base_user.css' %}">
+{% endblock %}
+
+
+{% block header %}
+    <header id="header"></header>
+{% endblock %}
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/md5.js' %}"></script>
+{% endblock %}

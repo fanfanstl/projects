@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block ext_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for("static",filename='axf/order/css/order.css') }}">
+{% endblock %}
+
+{% block header %}
+    <header></header>
+{% endblock %}

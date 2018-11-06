@@ -1,0 +1,28 @@
+{% extends 'usermanagement/base_user.html' %}
+{% load static %}
+{% block content %}
+    {#    注册表单     #}
+    <div class="container">
+        <form method="post"  action="{% url 'forclass:login' %}" id="reg_form">
+            {% csrf_token %}
+            <p style="color: red;">{{ error_info }}</p>
+            <div class="form-group">
+                <label for="username_input">用户名</label>
+                <input type="text" name="username" class="form-control" id="username_input" placeholder="用户名/手机号">
+                <span id="username_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="passwd_input">密码</label>
+                <input type="password" name="passwd" class="form-control" id="passwd_input" placeholder="请输入密码">
+                <span id="passwd_info"></span>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">登录</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block ext_js %}
+    {% load static %}
+{{ block.super }}
+    <script type="text/javascript" src="{% static 'usermanagement/js/login.js' %} "></script>
+{% endblock %}

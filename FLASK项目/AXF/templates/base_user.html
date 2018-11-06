@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block ext_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for("static",filename='axf/user/css/user.css') }}">
+{% endblock %}
+
+{% block ext_js %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ url_for("static",filename='js/md5.js') }}"></script>
+{% endblock %}
+
+{% block header %}
+    <header></header>
+{% endblock %}

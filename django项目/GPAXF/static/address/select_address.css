@@ -1,0 +1,13 @@
+
+.box{
+    position: relative;
+}
+ul li:last-child{
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+}
+
+ul li:first-child{
+    margin-left: 0.2rem;
+}

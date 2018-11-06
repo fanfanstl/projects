@@ -1,0 +1,45 @@
+{% extends "base_address.html" %}
+
+{% load static %}
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'address/select_address.css' %}">
+{% endblock %}
+
+{% block ext_js %}
+{{ block.super }}
+{#    <script type="text/javascript" src="{% static '' %}"></script>#}
+{% endblock %}
+{% block content %}
+    <h1 style="font-size: 0.6rem;">收货地址</h1>
+    <br>
+    {% if addresses %}
+    {% for address in addresses %}
+
+        <ul class="box">
+            <li>
+                <div class="name">{{ address.a_username }}</div>
+                <div class="phone">{{ address.a_phone }}</div>
+                <div class="address">
+                    {{ address.a_province }}{{ address.a_city }}{{ address.a_county }}{{ address.a_detailed_address }}
+                </div>
+
+            </li>
+            <li>
+                <a href="/axf/cart/?aid={{ address.id }}" role="button"  class="btn btn-success" >选择</a>
+{#                <a href="" role="button" aid="{{ address.id }}" class="btn btn-success" >删除</a>#}
+
+            </li>
+        </ul>
+        <br>
+    {% endfor %}
+        {% else %}
+        <span>请添加地址信息</span>
+    {% endif %}
+
+
+
+    <a href="{% url 'axf:addaddress' %}" role="button" class="btn btn-primary add_address btn-block">添加收货地址</a>
+
+
+{% endblock %}

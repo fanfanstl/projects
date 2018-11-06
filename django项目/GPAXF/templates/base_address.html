@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block ext_css %}
+{{ block.supper }}
+    <link rel="stylesheet" href="{% static 'address/base_address.css' %}">
+{% endblock %}
+
+{% block header %}
+<header></header>
+{% endblock %}

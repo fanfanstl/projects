@@ -1,0 +1,34 @@
+{% extends 'base_address.html' %}
+{% load static %}
+{% block ext_js %}
+    {{ block.super }}
+    <script src="{% static 'address/js/distpicker.data.js' %}"></script>
+    <script src="{% static 'address/js/distpicker.js' %}"></script>
+    <script src="{% static 'address/js/main.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'axf:addaddress' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="rec_name">收货人姓名</label>
+            <input type="text" name="name" class="form-control" id="rec_name" placeholder="请输入收货人姓名">
+        </div>
+        <div class="form-group">
+            <label for="rec_phone">收货人手机号</label>
+            <input type="text" name="phone" class="form-control" id="rec_phone" placeholder="请输入收货人手机号">
+        </div>
+        <div data-toggle="distpicker" class="form-group">
+            <label>地址选择</label>
+            <select data-province="---- 选择省 ----" class="form-control" name="province"></select>
+            <select data-city="---- 选择市 ----" class="form-control" name="city"></select>
+            <select data-district="---- 选择区 ----" class="form-control" name="county"></select>
+        </div>
+        <div class="form-group">
+            <label for="rec_more">详细收货地址</label>
+            <input type="text" name="more_addr" class="form-control" id="rec_more" placeholder="请输入详细收货地址">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">添加</button>
+    </form>
+
+{% endblock %}

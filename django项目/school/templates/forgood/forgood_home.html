@@ -1,0 +1,102 @@
+{% extends 'forgood/base_forgood.html' %}
+ {% load static %}
+{% block ext_css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'forgood/css/forgood_home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+
+        <!--商品内容-->
+        <div class="row" id="list">
+            <!--商品分类-->
+            <div class="col-md-3 col-sm-2">
+                <div class="btn-group-vertical btn-block" role="group" aria-label="...">
+                    {% for type in types %}
+                        {% ifequal tid type.id %}
+                            <a href="{% url 'forgood:homewithargument' tid=type.id %}" class="btn btn-primary"
+                               role="button">{{ type.t_name }}</a>
+                        {% else %}
+                            <a href="{% url 'forgood:homewithargument' tid=type.id %}" class="btn btn-default"
+                               role="button">{{ type.t_name }}</a>
+
+                        {% endifequal %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!--商品列表-->
+            <div class="col-md-9 col-sm-10">
+                <div class="row">
+                    {% for good in goods %}
+                        <div class="col-sm-5 col-md-4">
+                            <div class="thumbnail">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper" id="myswiper">
+                                        <div class="swiper-slide">
+                                            <img src="/static/upload/{{ good.g_img_one.url }}" class="myimg"/>
+{#                                            <img src="{{ good.g_img_one }}" class="myimg"/>#}
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="/static/upload/{{ good.g_img_two }}" class="myimg"/>
+{#                                            <img src="{{ good.g_img_two }}" class="myimg"/>#}
+                                        </div>
+                                    </div>
+
+                                    <!-- 如果需要导航按钮 -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+
+                                </div>
+                                <div class="caption">
+                                    <h3>{{ good.g_name }}</h3>
+                                    <p>{{ good.g_des }}</p>
+
+                                    <p><span>价格:￥{{ good.g_price }}</span></p>
+                                    <p>
+                                        <button class="btn btn-primary more" role="button">详情</button>
+                                        {# 传给后台供模态框使用#}
+                                        <span style="display: none" class="goodid">{{ good.id }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+            {#        模态框     #}
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                           <span class="temp"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{% block ext_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'forgood/js/forgood_home.js' %}"></script>
+{% endblock %}

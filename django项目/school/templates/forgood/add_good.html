@@ -1,0 +1,61 @@
+{% extends 'forgood/base_forgood.html' %}
+{% load static %}
+{% block ext_js %}
+{{ block.super }}
+    <script type="text/javascript" src="{% static 'forgood/js/add_good.js' %}"></script>
+{% endblock %}
+{% block content %}
+
+    {#    注册表单     #}
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" action="{% url 'forgood:addgood' %}" onsubmit="return check_addgood()">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="goodname_input">商品名</label>
+                <input type="text" name="goodname" class="form-control" id="goodname_input" placeholder="请输入商品名称">
+                <span id="goodname_input_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone_input">手机号</label>
+                <input type="text" name="phone" class="form-control" id="phone_input" placeholder="请输入手机号">
+                <span id="phone_input_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="des_area">商品描述</label>
+                <textarea name="des" id="des_area" rows="5" placeholder="请输入商品描述" class="form-control"></textarea>
+                <span id="des_area_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="addr_input">商品所在地</label>
+                <input type="text" class="form-control" id="addr_input" name="addr" placeholder="请输入商品所在地">
+                <span id="addr_input_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="price_input">价格</label>
+                <input type="number" name="price" class="form-control" id="price_input" placeholder="请输入价格">
+                <span id="price_input_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="type_select">商品类别</label>
+                <select name="ttype" id="type_select" class="form-control">
+                    {% for type in types %}
+                        <option value="{{ type.id }}">{{ type.t_name }}</option>
+                    {% endfor %}
+                </select>
+                <span id=""></span>
+            </div>
+            <div class="form-group">
+                <label for="img1_input">商品图片1</label>
+                <input type="file" name="icon1" id="img1_input">
+                <span id="img1_input_info"></span>
+            </div>
+            <div class="form-group">
+                <label for="img2_input">商品图片2</label>
+                <input type="file" name="icon2" id="img2_input">
+                <span id="img2_input_info"></span>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">发布</button>
+        </form>
+    </div>
+{% endblock %}
+
